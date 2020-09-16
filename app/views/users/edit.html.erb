@@ -1,0 +1,22 @@
+<h1>Edit an existing User</h1>
+ 
+ <% if @user.errors.any? %>
+         <div id ="error_messages">
+            <h2><%= pluralize(@user.errors.count,"Error")%></h2>
+            <ul>
+               <% @user.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+               <% end %>
+            </ul>
+          </div>
+ <% end %> 
+
+<%= form_for(@user, html: {multipart: true}) do |f| %>
+   <%= label_tag(:username, "Username:") %>
+   <%= f.text_field :username, value:"Poios?"%>
+   <%= label_tag(:email, "Email:") %>
+   <%= f.text_field :email , placeholder: "example@example.com"%>
+   <%= label_tag(:password, "Password:") %>
+   <%= f.text_field :password %>
+   <%= f.submit "Submit" %>
+<% end %>

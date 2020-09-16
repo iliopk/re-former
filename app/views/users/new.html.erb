@@ -1,0 +1,40 @@
+<h1>Create a New User</h1>
+
+<!--
+<form  accept-charset="UTF-8" action="/users" method="post">
+	<label for="user[username]">Username:</label>
+    <input type="text" id="user[username]" name="user[username]">
+    <label for="user[email]">Email:</label>
+    <input type="text" id="user[email]" name="user[email]">
+    <label for="user[password]">Password:</label>
+    <input type="text" id="user[password]" name="user[password]">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Create">
+</form>
+-->
+<!--
+<%= form_tag("/users", method: "post") do %>
+  <%= label_tag(:username, "Username:") %>
+  <%= text_field_tag(:username) %>
+  
+
+  <%= label_tag(:email, "Email:") %>
+  <%= text_field_tag(:email) %>
+ 
+  <%= label_tag(:password, "Password:") %>
+  <%= text_field_tag(:password) %>
+
+  <%= submit_tag("Create") %>
+<% end %>
+-->
+
+
+<%= form_for @user do |f| %>
+   <%= label_tag(:username, "Username:") %>
+   <%= f.text_field :username, value:"Poios?"%>
+   <%= label_tag(:email, "Email:") %>
+   <%= f.text_field :email , placeholder: "example@example.com"%>
+   <%= label_tag(:password, "Password:") %>
+   <%= f.text_field :password %>
+   <%= f.submit "Submit" %>
+<% end %>
